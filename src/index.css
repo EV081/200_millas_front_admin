@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-primary: #1000a3;
+  /* Official-looking deep blue */
+  --color-primary-hover: #002a6b;
+  --color-secondary: #ffffff;
+  /* White background */
+  --color-surface: #f8f9fa;
+  /* Very light gray for cards */
+  --color-text: #1a1a1a;
+  /* Almost black text */
+  --color-text-light: #4a4a4a;
+  /* Dark gray text */
+  --color-accent: #e31c23;
+  /* Red accent often found in seafood places or promos */
+  --font-primary: "Tablet Gothic Compressed W02Bd";
+}
+
+body {
+  @apply bg-secondary text-text font-primary antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
