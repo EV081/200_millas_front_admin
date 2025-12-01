@@ -50,9 +50,6 @@
       "@interfaces/*": [
         "src/interfaces/*"
       ],
-      "@mocks/*": [
-        "src/mocks/*"
-      ],
       "@context/*": [
         "src/context/*"
       ],

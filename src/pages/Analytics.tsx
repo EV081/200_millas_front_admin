@@ -37,10 +37,10 @@ const Analytics = () => {
                 getPromedioPorEstado({ local_id: localId })
             ]);
 
-            setPedidosData(pedidos.data);
-            setGananciasData(ganancias.data);
-            setTiempoData(tiempo.data);
-            setEstadosData(estados.data);
+            setPedidosData(pedidos);
+            setGananciasData(ganancias);
+            setTiempoData(tiempo);
+            setEstadosData(estados);
         } catch (error) {
             console.error('Error cargando analytics:', error);
         } finally {
@@ -57,7 +57,7 @@ const Analytics = () => {
         setExportStatus(null);
         try {
             const response = await exportAnalytics();
-            setExportStatus(`✅ ${response.data.message}`);
+            setExportStatus(`✅ ${response.message}`);
             // Recargar datos después de exportar
             setTimeout(() => loadAllAnalytics(), 2000);
         } catch (error: any) {
@@ -147,10 +147,10 @@ const Analytics = () => {
                                         <span className="text-3xl">💰</span>
                                     </div>
                                     <p className="text-4xl font-bold">
-                                        S/ {gananciasData.data[0].ganancias_totales.toFixed(2)}
+                                        S/ {(gananciasData.data[0].ganancias_totales ?? 0).toFixed(2)}
                                     </p>
                                     <p className="text-green-100 text-sm mt-2">
-                                        Promedio: S/ {gananciasData.data[0].ganancia_promedio.toFixed(2)}
+                                        Promedio: S/ {(gananciasData.data[0].ganancia_promedio ?? 0).toFixed(2)}
                                     </p>
                                 </div>
                             )}
@@ -201,7 +201,7 @@ const Analytics = () => {
                                                     </td>
                                                     <td className="px-4 py-3 text-center">{estado.total_pedidos}</td>
                                                     <td className="px-4 py-3 text-center font-semibold">
-                                                        {estado.tiempo_promedio_minutos.toFixed(1)}
+                                                        {(estado.tiempo_promedio_minutos ?? 0).toFixed(1)}
                                                     </td>
                                                     <td className="px-4 py-3 text-center text-green-600">
                                                         {estado.tiempo_minimo_minutos}
@@ -210,7 +210,7 @@ const Analytics = () => {
                                                         {estado.tiempo_maximo_minutos}
                                                     </td>
                                                     <td className="px-4 py-3 text-center text-gray-600">
-                                                        {estado.desviacion_estandar.toFixed(2)}
+                                                        {(estado.desviacion_estandar ?? 0).toFixed(2)}
                                                     </td>
                                                 </tr>
                                             ))}

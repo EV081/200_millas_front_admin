@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '@context/context';
 import type { LoginRequest } from '@interfaces/auth';
 import { useNavigate } from 'react-router-dom';
-import MockCredentialsHelper from '@components/MockCredentialsHelper';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginRequest>();
@@ -78,8 +77,6 @@ const Login = () => {
                 </form>
 
                 <p className="text-center text-sm text-gray-500 mt-4">Contacto de TI para crear cuentas de Admin/Empleado.</p>
-
-                <MockCredentialsHelper />
             </div>
         </div>
     );

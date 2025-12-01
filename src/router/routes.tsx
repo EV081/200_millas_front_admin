@@ -7,7 +7,6 @@ import Login from "@pages/Login";
 import AdminDashboard from "@pages/AdminDashboard";
 import EmployeeDashboard from "@pages/EmployeeDashboard";
 import Analytics from "@pages/Analytics";
-import TestMocks from "@pages/TestMocks";
 import Products from "@pages/Products";
 import App from "../App";
 import { ROLES } from "@utils/roleUtils";
@@ -88,12 +87,6 @@ export const router = createBrowserRouter([
                         children: [
                             { index: true, element: <EmployeeDashboard /> },
                         ],
-                    },
-
-                    // Test Mocks - All authenticated users
-                    { 
-                        path: "test-mocks", 
-                        element: <TestMocks /> 
                     },
                 ],
             },
