@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
-import { getProducts } from '@services/product';
+import { listProducts } from '@services/product';
 import type { Product } from '@interfaces/product';
 
 const CATEGORIES = [
@@ -37,7 +37,7 @@ const Menu = () => {
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await getProducts();
+                const response = await listProducts({ local_id: '' });
                 setProducts(response.contents);
             } catch (error) {
                 console.error('Error fetching products:', error);

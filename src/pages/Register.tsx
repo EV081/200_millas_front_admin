@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '@hooks/useAuth';
@@ -22,7 +22,7 @@ const Register = () => {
                 nombre: data.nombre || '',
                 correo: data.correo,
                 contrasena: data.contrasena,
-                role: 'Cliente'
+                rol: 'Cliente'
             };
             await registerService(payload);
             // Auto-login after registration
