@@ -59,6 +59,9 @@ const DNIModal = ({ isOpen, onClose, onConfirm, accion, pedidoId }: DNIModalProp
                         placeholder="Ej: 12345678"
                         required
                         autoFocus
+                        autoComplete="off"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                     />
                     <div className="flex gap-3">
                         <button
