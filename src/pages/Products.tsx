@@ -29,6 +29,13 @@ const Products = () => {
 
     useEffect(() => {
         loadProducts();
+        
+        // Refrescar productos cada 30 minutos para obtener nuevas URLs firmadas
+        const interval = setInterval(() => {
+            loadProducts();
+        }, 30 * 60 * 1000); // 30 minutos
+        
+        return () => clearInterval(interval);
     }, []);
 
     const loadProducts = async () => {
