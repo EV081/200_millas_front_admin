@@ -47,6 +47,13 @@ const Menu = () => {
         };
 
         fetchProducts();
+        
+        // Refrescar productos cada 30 minutos para obtener nuevas URLs firmadas
+        const interval = setInterval(() => {
+            fetchProducts();
+        }, 30 * 60 * 1000); // 30 minutos
+        
+        return () => clearInterval(interval);
     }, []);
 
     const filteredItems = products.filter(item => {
