@@ -24,8 +24,8 @@ const AdminDashboard = () => {
                 
                 if (!active) return;
                 
-                setEmployees(empResponse.data.contents || []);
-                setProducts(prodResponse.data.contents || []);
+                setEmployees(empResponse.contents || []);
+                setProducts(prodResponse.contents || []);
             } catch (error) {
                 console.error('Error cargando datos:', error);
             } finally {
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
         return () => { active = false; };
     }, []);
 
-    const userRole = (user as any)?.role || (user as any)?.rol || '';
+    const userRole = (user)?.role || '';
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">

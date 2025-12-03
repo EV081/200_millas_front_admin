@@ -4,7 +4,8 @@
 		"name": "200 Millas - API Collection COMPLETA",
 		"description": "Colección completa con TODOS los endpoints del proyecto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "43507435"
+		"_exporter_id": "43507435",
+		"_collection_link": "https://bold-crescent-20177.postman.co/workspace/My-Workspace~3b0820c5-a856-4cb8-8910-b6780db52428/collection/43507435-44899cc6-5906-4cc1-9654-24b4757ac9bf?action=share&source=collection_link&creator=43507435"
 	},
 	"item": [
 		{
@@ -1024,6 +1025,197 @@
 					]
 				},
 				{
+					"name": "Listar Pedidos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"local_id\": \"{{local_id}}\",\n    \"estado\": \"recibido\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{empleado_url}}/empleados/pedidos/restaurante",
+							"host": [
+								"{{empleado_url}}"
+							],
+							"path": [
+								"empleados",
+								"pedidos",
+								"restaurante"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"local_id\": \"{{local_id}}\",\n    \"estado\": \"cocinando\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado_url}}/empleados/pedidos/restaurante",
+									"host": [
+										"{{empleado_url}}"
+									],
+									"path": [
+										"empleados",
+										"pedidos",
+										"restaurante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 21:02:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "475"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-oJNgbCoAMEMIg="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pedidos\": [\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"jose.perez@hotmail.com\",\n            \"created_at\": \"2025-12-02T19:57:42.924943\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Ceviches 38\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"estado\": \"cocinando\",\n            \"costo\": 57.16,\n            \"direccion\": \"Calle 51 #659\",\n            \"pedido_id\": \"8d92070e-5f38-42f8-9a9b-f791112a2023\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": \"eyJwZWRpZG9faWQiOiAiNzRiYzVkODUtZjRhZC00YjZhLWJkYmItMDMxZDBmOTQ4OTkwIiwgImxvY2FsX2lkIjogIkxPQ0FMLTAwMSJ9\",\n    \"local_id\": \"LOCAL-001\"\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"local_id\": \"{{local_id}}\",\n    \"estado\": \"cocinando\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado_url}}/empleados/pedidos/restaurante",
+									"host": [
+										"{{empleado_url}}"
+									],
+									"path": [
+										"empleados",
+										"pedidos",
+										"restaurante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 21:02:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3901"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-oLehAqoAMEY9Q="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pedidos\": [\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"luis.fernandez@gmail.com\",\n            \"created_at\": \"2025-12-02T20:51:42.925822\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Duos Marinos 34\",\n                    \"cantidad\": 2\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Fritazo 20\",\n                    \"cantidad\": 1\n                }\n            ],\n            \"estado\": \"procesando\",\n            \"costo\": 208.54,\n            \"direccion\": \"Calle 9 #847\",\n            \"pedido_id\": \"8e006918-b0e6-4b33-be07-8498009b8bb4\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"valentina.ortiz@outlook.com\",\n            \"created_at\": \"2025-12-02T20:46:42.924978\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Express 10\",\n                    \"cantidad\": 3\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Sopas Power 40\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"estado\": \"procesando\",\n            \"costo\": 325.82,\n            \"direccion\": \"Calle 37 #671\",\n            \"pedido_id\": \"876a8f89-03c1-4638-b77a-61f5c995eb24\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"jose.perez@hotmail.com\",\n            \"created_at\": \"2025-12-02T20:32:42.925288\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promos Fast 39\",\n                    \"cantidad\": 2\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Mega Marino 27\",\n                    \"cantidad\": 1\n                }\n            ],\n            \"estado\": \"enviando\",\n            \"costo\": 107.07,\n            \"direccion\": \"Calle 173 #644\",\n            \"pedido_id\": \"74bc5d85-f4ad-4b6a-bdbb-031d0f948990\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"juan.perez@outlook.com\",\n            \"created_at\": \"2025-12-02T20:27:42.924077\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Mega Marino 56\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 4\",\n                    \"cantidad\": 2\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 42\",\n                    \"cantidad\": 3\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 260.14,\n            \"direccion\": \"Calle 180 #390\",\n            \"pedido_id\": \"c6ad01f6-5316-4435-a831-6ad0d631d2c7\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"diego.flores@outlook.com\",\n            \"created_at\": \"2025-12-02T20:18:42.924475\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Fritazo 54\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Express 49\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Fritazo 20\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Mega Marino 27\",\n                    \"cantidad\": 1\n                }\n            ],\n            \"estado\": \"empacando\",\n            \"costo\": 190.78,\n            \"direccion\": \"Calle 39 #818\",\n            \"pedido_id\": \"76323844-63ab-4075-a6c3-5b66fc518a86\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"ana.fernandez@gmail.com\",\n            \"created_at\": \"2025-12-02T20:10:42.925847\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 6\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 88.58,\n            \"direccion\": \"Calle 3 #804\",\n            \"pedido_id\": \"c722e2cb-d058-48b0-94e5-fd0b9e1aab3f\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"juan.gonzalez@hotmail.com\",\n            \"created_at\": \"2025-12-02T20:05:42.924648\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 42\",\n                    \"cantidad\": 1\n                }\n            ],\n            \"estado\": \"enviando\",\n            \"costo\": 43.44,\n            \"direccion\": \"Calle 111 #941\",\n            \"pedido_id\": \"e63bf28d-b742-4b4f-9516-8739ee891290\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"jose.perez@hotmail.com\",\n            \"created_at\": \"2025-12-02T19:57:42.924943\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Ceviches 38\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"estado\": \"cocinando\",\n            \"costo\": 57.16,\n            \"direccion\": \"Calle 51 #659\",\n            \"pedido_id\": \"8d92070e-5f38-42f8-9a9b-f791112a2023\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"juan.gonzalez@hotmail.com\",\n            \"created_at\": \"2025-12-02T19:48:42.925926\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Fritazo 58\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Express 10\",\n                    \"cantidad\": 3\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Ceviches 38\",\n                    \"cantidad\": 3\n                }\n            ],\n            \"estado\": \"procesando\",\n            \"costo\": 345.53,\n            \"direccion\": \"Calle 40 #963\",\n            \"pedido_id\": \"ca7167f4-f6ff-492b-9cbf-e85d80924122\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"diego.flores@outlook.com\",\n            \"created_at\": \"2025-12-02T19:36:42.925401\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 18\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 4\",\n                    \"cantidad\": 3\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 214.4,\n            \"direccion\": \"Calle 65 #936\",\n            \"pedido_id\": \"a5c54737-f3cb-4d7c-9601-e70c5f6aa927\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": \"eyJwZWRpZG9faWQiOiAiNzRiYzVkODUtZjRhZC00YjZhLWJkYmItMDMxZDBmOTQ4OTkwIiwgImxvY2FsX2lkIjogIkxPQ0FMLTAwMSJ9\",\n    \"local_id\": \"LOCAL-001\"\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"local_id\": \"{{local_id}}\",\n    \"estado\": \"recibido\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{empleado_url}}/empleados/pedidos/restaurante",
+									"host": [
+										"{{empleado_url}}"
+									],
+									"path": [
+										"empleados",
+										"pedidos",
+										"restaurante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 21:02:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1274"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-oPFhvzoAMEMiw="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pedidos\": [\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"juan.perez@outlook.com\",\n            \"created_at\": \"2025-12-02T20:27:42.924077\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Mega Marino 56\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 4\",\n                    \"cantidad\": 2\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 42\",\n                    \"cantidad\": 3\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 260.14,\n            \"direccion\": \"Calle 180 #390\",\n            \"pedido_id\": \"c6ad01f6-5316-4435-a831-6ad0d631d2c7\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"ana.fernandez@gmail.com\",\n            \"created_at\": \"2025-12-02T20:10:42.925847\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 6\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 88.58,\n            \"direccion\": \"Calle 3 #804\",\n            \"pedido_id\": \"c722e2cb-d058-48b0-94e5-fd0b9e1aab3f\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"diego.flores@outlook.com\",\n            \"created_at\": \"2025-12-02T19:36:42.925401\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 18\",\n                    \"cantidad\": 1\n                },\n                {\n                    \"producto_id\": \"LOCAL-001#Promociones 4\",\n                    \"cantidad\": 3\n                }\n            ],\n            \"estado\": \"recibido\",\n            \"costo\": 214.4,\n            \"direccion\": \"Calle 65 #936\",\n            \"pedido_id\": \"a5c54737-f3cb-4d7c-9601-e70c5f6aa927\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": \"eyJsb2NhbF9pZCI6ICJMT0NBTC0wMDEiLCAicGVkaWRvX2lkIjogIjc0YmM1ZDg1LWY0YWQtNGI2YS1iZGJiLTAzMWQwZjk0ODk5MCJ9\",\n    \"local_id\": \"LOCAL-001\"\n}"
+						}
+					]
+				},
+				{
 					"name": "Cocina Inicia Preparación",
 					"request": {
 						"method": "POST",
@@ -1455,7 +1647,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"local_id\": \"{{local_id}}\"\n}"
+							"raw": "{\n  \"local_id\": \"{{local_id}}\",\n  \"nombre\": \"Marinas\"\n}"
 						},
 						"url": {
 							"raw": "{{products_url}}/productos/list",
@@ -1468,7 +1660,167 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Listar Productos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"local_id\": \"{{local_id}}\",\n  \"nombre\": \"Marino\"\n}"
+								},
+								"url": {
+									"raw": "{{products_url}}/productos/list",
+									"host": [
+										"{{products_url}}"
+									],
+									"path": [
+										"productos",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 20:41:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1240"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-lD8haOIAMEPKg="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"contents\": [\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"nombre\": \"Trios Marinos 36\",\n            \"descripcion\": \"Delicioso plato de la categoría Trios Marinos\",\n            \"stock\": 17,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-001/trios-marinos-36.jpg\",\n            \"categoria\": \"Trios Marinos\",\n            \"precio\": 50.23,\n            \"producto_id\": \"14cbc2bd-1216-4669-aa54-3f7372309dbb\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"nombre\": \"Box Marino 10\",\n            \"descripcion\": \"Delicioso plato de la categoría Box Marino\",\n            \"stock\": 8,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-001/box-marino-10.jpg\",\n            \"categoria\": \"Box Marino\",\n            \"precio\": 75.83,\n            \"producto_id\": \"3141d97f-942a-441f-bf0c-2f8ac16278ba\"\n        },\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"nombre\": \"Mega Marino 19\",\n            \"descripcion\": \"Delicioso plato de la categoría Mega Marino\",\n            \"stock\": 10,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-001/mega-marino-19.jpg\",\n            \"categoria\": \"Mega Marino\",\n            \"precio\": 40.82,\n            \"producto_id\": \"46626c7e-3d4d-4744-81aa-2ac5847971be\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": \"eyJsb2NhbF9pZCI6ICJMT0NBTC0wMDEiLCAicHJvZHVjdG9faWQiOiAiNDY2MjZjN2UtM2Q0ZC00NzQ0LTgxYWEtMmFjNTg0Nzk3MWJlIn0=\",\n    \"page\": 0\n}"
+						},
+						{
+							"name": "Listar Productos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"local_id\": \"{{local_id}}\",\n  \"nombre\": \"Fritazo\"\n}"
+								},
+								"url": {
+									"raw": "{{products_url}}/productos/list",
+									"host": [
+										"{{products_url}}"
+									],
+									"path": [
+										"productos",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 21:55:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "846"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-v7QgghIAMEaYQ="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"contents\": [\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Fritazo 32\",\n            \"descripcion\": \"Delicioso plato de la categoría Fritazo\",\n            \"stock\": 25,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/fritazo-32.jpg\",\n            \"categoria\": \"Fritazo\",\n            \"precio\": 53.35,\n            \"producto_id\": \"1cccb96f-3306-4706-a636-e73520507f32\"\n        },\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Fritazo 16\",\n            \"descripcion\": \"Delicioso plato de la categoría Fritazo\",\n            \"stock\": 1,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/fritazo-16.jpg\",\n            \"categoria\": \"Fritazo\",\n            \"precio\": 67.57,\n            \"producto_id\": \"1d1be953-3889-4575-8892-c13113033cbf\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": \"eyJwcm9kdWN0b19pZCI6ICI0NzJiNTE4Ni1lYTI0LTQxNDMtOGE0Ny05MDg0OWM2ZjBkZWIiLCAibG9jYWxfaWQiOiAiTE9DQUwtMDAzIn0=\",\n    \"page\": 0\n}"
+						},
+						{
+							"name": "Listar Productos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"local_id\": \"{{local_id}}\",\n  \"nombre\": \"Marinas\"\n}"
+								},
+								"url": {
+									"raw": "{{products_url}}/productos/list",
+									"host": [
+										"{{products_url}}"
+									],
+									"path": [
+										"productos",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 22:09:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1537"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-x8Yj1cIAMEZew="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"contents\": [\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Rondas Marinas 58\",\n            \"descripcion\": \"Delicioso plato de la categoría Rondas Marinas\",\n            \"stock\": 30,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/rondas-marinas-58.jpg\",\n            \"categoria\": \"Rondas Marinas\",\n            \"precio\": 62.71,\n            \"producto_id\": \"3e57b06b-0e55-4876-9637-5e039a995a07\"\n        },\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Rondas Marinas 18\",\n            \"descripcion\": \"Delicioso plato de la categoría Rondas Marinas\",\n            \"stock\": 31,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/rondas-marinas-18.jpg\",\n            \"categoria\": \"Rondas Marinas\",\n            \"precio\": 54.47,\n            \"producto_id\": \"6d38c6ae-c6c5-41ec-8f5e-0f1f285b034f\"\n        },\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Rondas Marinas 26\",\n            \"descripcion\": \"Delicioso plato de la categoría Rondas Marinas\",\n            \"stock\": 23,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/rondas-marinas-26.jpg\",\n            \"categoria\": \"Rondas Marinas\",\n            \"precio\": 31.21,\n            \"producto_id\": \"896f634d-55e3-482f-a9c3-25134f8a8a99\"\n        },\n        {\n            \"local_id\": \"LOCAL-003\",\n            \"nombre\": \"Rondas Marinas 50\",\n            \"descripcion\": \"Delicioso plato de la categoría Rondas Marinas\",\n            \"stock\": 28,\n            \"imagen_url\": \"https://productos-millas-images-bucket-209580367248.s3.amazonaws.com/productos/local-003/rondas-marinas-50.jpg\",\n            \"categoria\": \"Rondas Marinas\",\n            \"precio\": 50.06,\n            \"producto_id\": \"d99ae855-b6f5-412d-971e-186b4cd40a3e\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": null,\n    \"page\": 0\n}"
+						}
+					]
 				},
 				{
 					"name": "Buscar Producto por ID",
@@ -2147,6 +2499,81 @@
 							"body": "{\n    \"local_id\": \"LOCAL-001\",\n    \"pedido_id\": \"74b26044-9f4d-40ee-b7a7-0ed1d13043ef\",\n    \"estado\": \"pedido_en_camino\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Historial Pedidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{clientes_url}}/pedido/historial",
+							"host": [
+								"{{clientes_url}}"
+							],
+							"path": [
+								"pedido",
+								"historial"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Historial Pedidos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token_user}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{clientes_url}}/pedido/historial",
+									"host": [
+										"{{clientes_url}}"
+									],
+									"path": [
+										"pedido",
+										"historial"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Dec 2025 21:46:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "391"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Apigw-Requestid",
+									"value": "U-ussjenoAMEcRQ="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pedidos\": [\n        {\n            \"local_id\": \"LOCAL-001\",\n            \"correo\": \"juan.cliente@200millas.com\",\n            \"created_at\": \"2025-12-02T21:46:52.575748+00:00\",\n            \"productos\": [\n                {\n                    \"producto_id\": \"e431f207-3fa1-4ffe-8b2f-b59c20b8e562\",\n                    \"cantidad\": 2\n                }\n            ],\n            \"pedido_id\": \"b175f658-80fb-4b20-a7a2-b813f0fbc3aa\",\n            \"estado\": \"procesando\",\n            \"costo\": 125.5,\n            \"direccion\": \"Av. Principal 123, Lima, Perú\"\n        }\n    ],\n    \"size\": 10,\n    \"next_token\": null\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2303,7 +2730,6 @@
 								{
 									"key": "Content-Type",
 									"value": "application/json",
-									"name": "Content-Type",
 									"description": "",
 									"type": "text"
 								},
@@ -2405,7 +2831,6 @@
 								{
 									"key": "Content-Type",
 									"value": "application/json",
-									"name": "Content-Type",
 									"description": "",
 									"type": "text"
 								},
@@ -2507,7 +2932,6 @@
 								{
 									"key": "Content-Type",
 									"value": "application/json",
-									"name": "Content-Type",
 									"description": "",
 									"type": "text"
 								},
@@ -2609,7 +3033,6 @@
 								{
 									"key": "Content-Type",
 									"value": "application/json",
-									"name": "Content-Type",
 									"description": "",
 									"type": "text"
 								},
@@ -2727,6 +3150,10 @@
 		},
 		{
 			"key": "dni_local1_repartidor",
+			"value": ""
+		},
+		{
+			"key": "token",
 			"value": ""
 		}
 	]

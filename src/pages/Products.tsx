@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import Header from '@components/Header';
 import { useAuth } from '@hooks/useAuth';
 import { listProducts, createProduct, updateProduct, deleteProduct } from '@services/product';
+import { useLocation as useAppLocation } from '@hooks/useLocation';
 import type { Product, CreateProductRequest, UpdateProductRequest } from '@interfaces/product';
 
 const Products = () => {
     const { user } = useAuth();
+    const { currentLocation } = useAppLocation();
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
@@ -22,7 +25,7 @@ const Products = () => {
 
     const userRole = (user as any)?.role || (user as any)?.rol || '';
     const isAdmin = userRole === 'Admin';
-    const localId = 'LOCAL-001';
+    const localId = currentLocation.id;
 
     useEffect(() => {
         loadProducts();
@@ -32,7 +35,7 @@ const Products = () => {
         setLoading(true);
         try {
             const response = await listProducts({ local_id: localId });
-            setProducts(response.data.contents || []);
+            setProducts(response.contents || []);
         } catch (error) {
             console.error('Error cargando productos:', error);
         } finally {

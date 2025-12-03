@@ -3,12 +3,14 @@ import Api from "@services/api";
 
 export const login = async (data: LoginRequest) => {
     const api = await Api.getInstance("users");
-    return api.post<LoginRequest, LoginResponse>(data, { url: "/users/login" });
+    const res = await api.post<LoginRequest, LoginResponse>(data, { url: "/users/login" });
+    return res.data as LoginResponse;
 };
 
 export const register = async (data: RegisterRequest) => {
     const api = await Api.getInstance("users");
-    return api.post<RegisterRequest, RegisterResponse>(data, { url: "/users/register" });
+    const res = await api.post<RegisterRequest, RegisterResponse>(data, { url: "/users/register" });
+    return res.data as RegisterResponse;
 };
 
 export const changePassword = async (data: ChangePasswordRequest) => {

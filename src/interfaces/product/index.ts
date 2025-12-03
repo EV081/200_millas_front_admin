@@ -11,6 +11,7 @@ export interface Product {
 
 export interface ProductListRequest {
     local_id: string;
+    nombre?: string; // Filtro opcional por nombre
     limit?: number;
     start_key?: string;
 }

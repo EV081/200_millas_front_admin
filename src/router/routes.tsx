@@ -8,6 +8,7 @@ import AdminDashboard from "@pages/AdminDashboard";
 import EmployeeDashboard from "@pages/EmployeeDashboard";
 import Analytics from "@pages/Analytics";
 import Products from "@pages/Products";
+import Orders from "@pages/Orders";
 import App from "../App";
 import { ROLES } from "@utils/roleUtils";
 
@@ -29,31 +30,23 @@ export const router = createBrowserRouter([
                 ],
             },
 
-            // Protected Routes - All authenticated users
+            // Protected Routes - All authenticated users (solo requieren token)
             {
                 element: <ProtectedRoute />,
                 children: [
-                    // Admin Dashboard
+                    // Admin Dashboard - Solo requiere autenticación
                     {
                         path: "dashboard",
-                        element: (
-                            <RoleBasedRoute 
-                                allowedRoles={[ROLES.ADMIN]} 
-                                redirectTo="/dashboard/employee"
-                            />
-                        ),
-                        children: [
-                            { index: true, element: <AdminDashboard /> },
-                        ],
+                        element: <AdminDashboard />,
                     },
 
-                    // Analytics - Admin only
+                    // Analytics - Admin y Gerente únicamente
                     {
                         path: "analytics",
                         element: (
                             <RoleBasedRoute 
-                                allowedRoles={[ROLES.ADMIN]} 
-                                redirectTo="/dashboard/employee"
+                                allowedRoles={[ROLES.ADMIN, ROLES.GERENTE]} 
+                                redirectTo="/dashboard"
                             />
                         ),
                         children: [
@@ -61,32 +54,22 @@ export const router = createBrowserRouter([
                         ],
                     },
 
-                    // Products - Admin and Empleado
+                    // Products - Solo requiere autenticación
                     {
                         path: "products",
-                        element: (
-                            <RoleBasedRoute 
-                                allowedRoles={[ROLES.ADMIN, ROLES.EMPLEADO]} 
-                                redirectTo="/dashboard"
-                            />
-                        ),
-                        children: [
-                            { index: true, element: <Products /> },
-                        ],
+                        element: <Products />,
                     },
 
-                    // Employee Dashboard - Empleados only
+                    // Employee Dashboard - Solo requiere autenticación
                     {
                         path: "dashboard/employee",
-                        element: (
-                            <RoleBasedRoute 
-                                allowedRoles={[ROLES.EMPLEADO]} 
-                                redirectTo="/dashboard"
-                            />
-                        ),
-                        children: [
-                            { index: true, element: <EmployeeDashboard /> },
-                        ],
+                        element: <EmployeeDashboard />,
+                    },
+
+                    // Orders - Gestión de pedidos, solo requiere autenticación
+                    {
+                        path: "orders",
+                        element: <Orders />,
                     },
                 ],
             },

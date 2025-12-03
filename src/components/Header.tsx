@@ -3,12 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@hooks/useAuth';
 import { canViewAnalytics } from '@utils/roleUtils';
 import logoIcon from "@assets/logo.png"
+import { useLocation as useAppLocation } from '@hooks/useLocation';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
+    const { currentLocation, getAllLocationNameAndIds, setLocationById } = useAppLocation();
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const userRole = (user as any)?.role || (user as any)?.rol || '';
     const showAnalytics = canViewAnalytics(userRole);
 
@@ -33,9 +36,28 @@ const Header = () => {
                     {isAuthenticated && (
                         <Link to="/products" className="hover:text-gray-300 transition-colors">Productos</Link>
                     )}
+                    {isAuthenticated && (
+                        <Link to="/orders" className="hover:text-gray-300 transition-colors">Pedidos</Link>
+                    )}
                     {isAuthenticated && showAnalytics && (
                         <Link to="/analytics" className="hover:text-gray-300 transition-colors">Analytics</Link>
                     )}
+
+                    {/* Selector de Local */}
+                    <div className="flex items-center gap-2 ml-4">
+                        <label className="text-xs text-white/80">Local:</label>
+                        <select
+                            value={currentLocation.id}
+                            onChange={(e) => setLocationById(e.target.value)}
+                            className="bg-white/10 text-white border border-white/20 rounded px-2 py-1 text-xs hover:bg-white/20"
+                        >
+                            {getAllLocationNameAndIds().map(loc => (
+                                <option key={loc.id} value={loc.id} className="text-black">
+                                    {loc.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
                     <div className="flex items-center space-x-4 ml-4 border-l border-white/20 pl-8">
                         {isAuthenticated ? (
@@ -79,9 +101,28 @@ const Header = () => {
                         {isAuthenticated && (
                             <Link to="/products" className="hover:text-gray-300 text-lg" onClick={() => setIsMenuOpen(false)}>Productos</Link>
                         )}
+                        {isAuthenticated && (
+                            <Link to="/orders" className="hover:text-gray-300 text-lg" onClick={() => setIsMenuOpen(false)}>Pedidos</Link>
+                        )}
                         {isAuthenticated && showAnalytics && (
                             <Link to="/analytics" className="hover:text-gray-300 text-lg" onClick={() => setIsMenuOpen(false)}>Analytics</Link>
                         )}
+
+                        {/* Selector de Local (Mobile) */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs text-white/80">Local:</span>
+                            <select
+                                value={currentLocation.id}
+                                onChange={(e) => setLocationById(e.target.value)}
+                                className="bg-white/10 text-white border border-white/20 rounded px-2 py-1 text-xs"
+                            >
+                                {getAllLocationNameAndIds().map(loc => (
+                                    <option key={loc.id} value={loc.id} className="text-black">
+                                        {loc.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                         <hr className="w-12 border-white/20" />
 
                         {isAuthenticated ? (

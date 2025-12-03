@@ -20,19 +20,22 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const login = async (data: LoginRequest) => {
         const response = await loginService(data);
-        if (response.data.token) {
+        console.log('Login response:', response);
+        if (response.token) {
             // detect role key (backend may return 'role' or 'rol')
-            const role = (response.data as any).role || (response.data as any).rol || '';
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const role = response.rol || '';
             
             // Block clients — this frontend is only for admin/empleado
             if (role && role.toString().toLowerCase() === 'cliente') {
                 throw new Error('Acceso restringido: esta aplicación es sólo para Admin/Gerente y Empleados');
             }
 
-            setToken(response.data.token);
+            setToken(response.token);
             setUser({
-                nombre: (response.data as any).nombre || response.data.correo.split('@')[0],
-                correo: response.data.correo,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                nombre: (response as any).nombre || response.correo.split('@')[0],
+                correo: response.correo,
                 role: role
             });
         }

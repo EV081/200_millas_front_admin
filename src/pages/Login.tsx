@@ -20,7 +20,7 @@ const Login = () => {
             await auth.login(data);
             
             // Redirigir según el rol del usuario
-            const userRole = (auth.user as any)?.role || (auth.user as any)?.rol || '';
+            const userRole = auth.user?.role || '';
             const isAdminOrGerente = ['admin', 'gerente'].includes(userRole.toLowerCase());
             
             if (isAdminOrGerente) {

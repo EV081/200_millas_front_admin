@@ -22,19 +22,20 @@ export interface LoginResponse {
     token: string;
     expires: string;
     correo: string;
-    role: string;
+    rol: string;
 }
 
 export interface RegisterRequest {
     nombre: string;
     correo: string;
     contrasena: string;
-    role: string;
+    rol: string;
 }
 
 export interface RegisterResponse {
     message: string;
     correo: string;
+    rol: string;
 }
 
 
