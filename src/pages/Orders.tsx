@@ -27,6 +27,12 @@ interface DNIModalProps {
 const DNIModal = ({ isOpen, onClose, onConfirm, accion, pedidoId }: DNIModalProps) => {
     const [dni, setDni] = useState('');
 
+    useEffect(() => {
+        if (isOpen) {
+            setDni('');
+        }
+    }, [isOpen]);
+
     if (!isOpen) return null;
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -57,11 +63,8 @@ const DNIModal = ({ isOpen, onClose, onConfirm, accion, pedidoId }: DNIModalProp
                         onChange={(e) => setDni(e.target.value)}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
                         placeholder="Ej: 12345678"
-                        required
-                        autoFocus
                         autoComplete="off"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
+                        autoFocus
                     />
                     <div className="flex gap-3">
                         <button
@@ -129,7 +132,7 @@ const Orders = () => {
     }, [estadoFiltro]);
 
     const prepararAccion = (
-        actionFn: (req: { order_id: string; dni: string; local_id: string }) => Promise<any>,
+        actionFn: (req: { order_id: string; empleado_id: string; local_id: string }) => Promise<any>,
         pedidoId: string,
         nombreAccion: string
     ) => {
@@ -138,7 +141,7 @@ const Orders = () => {
                 setLoading(true);
                 setActionResult(null);
                 try {
-                    const result = await actionFn({ order_id: pedidoId, dni, local_id: localId });
+                    const result = await actionFn({ order_id: pedidoId, empleado_id: dni, local_id: localId });
                     setActionResult({
                         message: `✅ ${nombreAccion}: ${result.message}`,
                         type: 'success'

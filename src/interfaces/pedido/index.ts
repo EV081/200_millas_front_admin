@@ -62,7 +62,7 @@ export interface ListPedidosResponse {
 // Interfaces para acciones de cambio de estado
 export interface CambiarEstadoPedidoRequest {
     order_id: string;
-    dni: string; // DNI del empleado
+    empleado_id: string; // DNI del empleado
     local_id: string; // Local del pedido
 }
 
