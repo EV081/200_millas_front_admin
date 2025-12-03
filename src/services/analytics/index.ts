@@ -13,7 +13,7 @@ import Api from "@services/api";
 
 export const exportAnalytics = async () => {
     const api = await Api.getInstance("analytic");
-    const response = await api.post<void, ExportAnalyticsResponse>({}, { url: "/analytics/export" });
+    const response = await api.post<undefined, ExportAnalyticsResponse>(undefined, { url: "/analytics/export" });
     return response.data;
 };
 
